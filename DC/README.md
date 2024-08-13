@@ -8,6 +8,11 @@
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
+2. [`BulkUpdateTC.py`](#BulkUpdateTCpy)
+   - [Purpose](#purpose)
+   - [Script Details](#script-details)
+   - [Usage](#usage)
+   - [Example](#example)
 3. [`GetAllAssignableUsers.py`](#GetAllAssignableUserspy)
    - [Purpose](#purpose-1)
    - [Script Details](#script-details-1)
@@ -18,7 +23,7 @@
 
 ## Overview
 
-This project contains two key scripts: `BulkUpdateTE.py` and `GetAllAssignableUsers.py`. Below are detailed explanations of each script, including their purposes, usage, and example commands.
+This project contains a few key scripts: `BulkUpdateTE.py`, `BulkUpdateTE.py` and `GetAllAssignableUsers.py`. Below are detailed explanations of each script, including their purposes, usage, and example commands.
 
 ---
 
@@ -51,6 +56,37 @@ python BulkUpdateTE.py
 ### Notes
 
 - Ensure that the `BulkUpdateTE.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Python 3.x is required to run this script.
+
+---
+
+## `BulkUpdateTC.py`
+
+### Purpose
+
+`BulkUpdateTC.py` is a Python script designed to automate bulk update of test cases via API: 
+
+### Script Details
+
+- **Execution**: The script runs a python file using four script input parameters: username, password, base url and test case key.
+
+### Usage
+
+To execute the `BulkUpdateTC.py` script, navigate to the project directory and use the following command:
+
+```bash
+python `BulkUpdateTC.py` 
+```
+
+### Example
+
+```bash
+python BulkUpdateTC.py 
+```
+
+### Notes
+
+- Ensure that the `BulkUpdateTC.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
 - Python 3.x is required to run this script.
 
 ---

@@ -4,9 +4,10 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 if len(sys.argv) != 5:
-    print("Usage: python3 script.py <username> <password> <instance_url> <projectKey> /n python3 script.py username password http//jira.com MIGB")
+    print("Usage: python3 script.py <username> <password> <instance_url> <projectKey>")
     sys.exit(1)
 
+#Note make sure projectKey is capatlized. 
 
 username = sys.argv[1]
 password = sys.argv[2]
@@ -36,12 +37,11 @@ response = requests.get(
 
 
 file_path = "AssignableUsers.txt"
-# Check if the request was successful
+
 if response.status_code == 200:
     users = response.json()
     with open(file_path, 'w') as file:
         for user in users:
-            # Filter users whose usernames start with 'JIRAUSER'
             
             file.write(f"Username: {user['name']}, Display Name: {user['key']}\n")
             
