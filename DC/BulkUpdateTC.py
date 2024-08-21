@@ -2,14 +2,14 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 #Replace with your basic auth credentials
-username = 'matthew.bonner'
-password = 'pzg3abn_ndx9CKN4wrg'
+username = '<username>'
+password = '<password>'
 
 #Replace with your host
-host = 'https://next-jira-8-postgres.qa.tm4j-server.smartbear.io'
+host = '<hostname>'
 
 # Replace with testCaseKeys you wish to update IE [MIGB-T6235', 'MIGB-T6234', 'MIGB-T6233', 'MIGB-T6232', 'MIGB-T6231]
-test_case_keys = ['MIGB-T6235', 'MIGB-T6234', 'MIGB-T6233', 'MIGB-T6232', 'MIGB-T6231']
+test_case_keys = ['<list of test cases>']
 
 
 url_template = '{host}/rest/atm/1.0/testcase/{testCaseKey}'
