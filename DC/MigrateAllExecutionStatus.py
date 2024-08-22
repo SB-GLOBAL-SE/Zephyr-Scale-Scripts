@@ -8,7 +8,7 @@ with open("error.txt", "w"):
     pass
 
 if len(sys.argv) != 5:
-    print("Usage: python3 MigrateExecutionStatus.py <username> <password> <project_key> <testCase_key> <instance_url>")
+    print("Usage: python3 MigrateExecutionStatus.py <username> <password> <project_key>  <instance_url>")
     sys.exit(1)
 
 username = sys.argv[1]
