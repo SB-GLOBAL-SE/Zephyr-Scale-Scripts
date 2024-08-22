@@ -18,6 +18,11 @@
    - [Script Details](#script-details-1)
    - [Usage](#usage-1)
    - [Example](#example-1)
+4. [`MigrateAllExecutionStatus.py`](#MigrateAllExecutionStatuspy)
+   - [Purpose](#purpose-1)
+   - [Script Details](#script-details-1)
+   - [Usage](#usage-1)
+   - [Example](#example-1)
 
 ---
 
@@ -118,6 +123,37 @@ python GetAllAssignableUsers.py matt password https://jira.com OPS
 ### Notes
 
 - Ensure that the `GetAllAssignableUsers.py` script has been modified to include your jira instance specific values, and we are using the correct command-line parameters.
+- Python 3.x is required to run this script.
+
+---
+
+## `MigrateAllExecutionStatus.py`
+
+### Purpose
+
+`MigrateAllExecutionStatus.py` is a Python script that runs a specified query to migrate Zephyr Squad execution statuses, including custom statuses, to the associated Zephyr Scale projects.
+
+### Script Details
+
+- **Execution**: The script runs a python file using four command-line input parameters: username, password, projectKey, and instance URL. 
+
+### Usage
+
+To run the `MigrateAllExecutionStatus.py` script, use the following command:
+
+```bash
+python MigrateAllExecutionStatus.py <username> <password> <project_key>  <instance_url>
+```
+
+### Example
+
+```bash
+python MigrateAllExecutionStatus.py matt password https://jira.com OPS
+```
+
+### Notes
+
+- Ensure that the `MigrateAllExecutionStatus.py` script has been modified to include your jira instance specific values, and we are using the correct command-line parameters.
 - Python 3.x is required to run this script.
 
 
