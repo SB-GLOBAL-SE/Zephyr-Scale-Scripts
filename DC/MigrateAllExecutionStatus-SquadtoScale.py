@@ -11,12 +11,6 @@ if os.path.exists("error.txt"):
 if len(sys.argv) != 5:
     print("Usage: python3 MigrateExecutionStatus.py <username> <password> <project_key> <instance url> ")
     sys.exit(1)
-with open('app.properties', 'r') as file:
-    for line in file:
-        if line.startswith('host'):
-            # Split the line on '=' and strip any whitespace
-            instance_url = line.split('=', 1)[1].strip()
-            break
 
 
 username = sys.argv[1]
