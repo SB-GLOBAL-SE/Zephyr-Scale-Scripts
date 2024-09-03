@@ -3,8 +3,8 @@ import io
 import sys
 import json
 
-def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token):
-    sourceProjectKey = 'KIM'
+def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey):
+
     url = f'{source_base_url}/testcases?startAt=1&maxResults=2&projectKey={sourceProjectKey}'
 
     source_headers = {
@@ -12,7 +12,6 @@ def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bear
     }
 
     response = requests.get(url, headers=source_headers)
-    targetProjectKey = 'APPS'
     old_tc_keys = []
     new_tc_keys = []
 
@@ -66,7 +65,6 @@ def migrate_steps_or_scripts(test_script_url, old_key, new_key, source_headers, 
     
     if response.status_code == 200:
         step_data = response.json()
-        print("Step Data:", step_data)
 
         if 'values' in step_data and step_data['values']:
             # Submit request to migrate test steps
@@ -113,13 +111,16 @@ def migrate_steps_or_scripts(test_script_url, old_key, new_key, source_headers, 
         print(response.content)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print("Usage: python script.py <source_base_url> <source_bearer_token> <target_base_url> <target_bearer_token>")
+    if len(sys.argv) < 6:
+        print("Usage: python script.py <source_base_url> <source_bearer_token> <target_base_url> <target_bearer_token> <sourceProjectKey> <targetProjectKey>")
         sys.exit(1)
 
     source_base_url = sys.argv[1]
     source_bearer_token = sys.argv[2]
-    target_base_url = source_base_url
     target_bearer_token = sys.argv[3]
+    sourceProjectKey = sys.argv[4]
+    targetProjectKey = sys.argv[5]
 
-    old_tc_keys, new_tc_keys = migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token)
+    target_base_url = source_base_url
+
+    old_tc_keys, new_tc_keys = migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey)
