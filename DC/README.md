@@ -8,17 +8,27 @@
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
-2. [`BulkUpdateTC.py`](#BulkUpdateTCpy)
+3. [`BulkUpdateTE-Excel.py`](#BulkUpdateTE-Excelpy)
    - [Purpose](#purpose)
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
-3. [`GetAllAssignableUsers.py`](#GetAllAssignableUserspy)
+4. [`BulkUpdateTC.py`](#BulkUpdateTCpy)
+   - [Purpose](#purpose)
+   - [Script Details](#script-details)
+   - [Usage](#usage)
+   - [Example](#example)
+5. [`BulkUpdateTC-Excel.py`](#BulkUpdateTC-Excelpy)
+   - [Purpose](#purpose)
+   - [Script Details](#script-details)
+   - [Usage](#usage)
+   - [Example](#example)
+6. [`GetAllAssignableUsers.py`](#GetAllAssignableUserspy)
    - [Purpose](#purpose-1)
    - [Script Details](#script-details-1)
    - [Usage](#usage-1)
    - [Example](#example-1)
-4. [`MigrateAllExecutionStatus-SquadtoScale.py`](#MigrateAllExecutionStatus-SquadtoScalepy)
+7. [`MigrateAllExecutionStatus-SquadtoScale.py`](#MigrateAllExecutionStatus-SquadtoScalepy)
    - [Purpose](#purpose-1)
    - [Script Details](#script-details-1)
    - [Usage](#usage-1)
@@ -65,6 +75,40 @@ python BulkUpdateTE.py
 
 ---
 
+## `BulkUpdateTE-Excel.py`
+
+### Purpose
+
+`BulkUpdateTE-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
+1. Determining what executions are contained within a sprit (test cycle)
+2. Updating a specific value across all executions in a sprint.
+
+### Script Details
+
+- **Execution**: The script runs a python file using four script input parameters: username, password, base url and cycle key.
+
+### Usage
+
+To execute the `BulkUpdateTE-Excel.py` script, navigate to the project directory and use the following command:
+
+```bash
+python `BulkUpdateTE-Excel.py` 
+```
+
+### Example
+
+```bash
+python BulkUpdateTE.py 
+```
+
+### Notes
+
+- Ensure that the `BulkUpdateTE-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Python 3.x is required to run this script.
+- csv is required to be in the same directory as the script. 
+
+---
+
 ## `BulkUpdateTC.py`
 
 ### Purpose
@@ -94,7 +138,41 @@ python BulkUpdateTC.py
 - Ensure that the `BulkUpdateTC.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
 - Python 3.x is required to run this script.
 
+
 ---
+
+
+## `BulkUpdateTC-Excel.py`
+
+### Purpose
+
+`BulkUpdateTC-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
+1. Determining what executions are contained within a sprit (test cycle)
+2. Updating a specific value across all executions in a sprint.
+
+### Script Details
+
+- **Execution**: The script runs a python file using four script input parameters: username, password, base url and cycle key.
+
+### Usage
+
+To execute the `BulkUpdateTC-Excel.py` script, navigate to the project directory and use the following command:
+
+```bash
+python `BulkUpdateTC-Excel.py` 
+```
+
+### Example
+
+```bash
+python BulkUpdateTC-Excel.py 
+```
+
+### Notes
+
+- Ensure that the `BulkUpdateTC-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Python 3.x is required to run this script.
+- csv is required to be in the same directory as the script. 
 
 ## `GetAllAssignableUsers.py`
 
