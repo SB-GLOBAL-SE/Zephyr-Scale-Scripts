@@ -36,18 +36,7 @@ Examples of objects we can update:
   "customFields": {
     "single choice": "Propulsion engines",
     "multichoice": "Brazil, England"
-  },
-  "testScript": {
-    "type": "STEP_BY_STEP",
-    "steps": [
-      {
-        "description": "Ignite the secondary propulsion engines.",
-        "testData": "Combustion chamber's initial pressure: 10",
-        "expectedResult": "Ensure the high-pressure combustion chamber's pressure is around 3000 psi."
-      }
-    ]
   }
-}
 """
 
 
