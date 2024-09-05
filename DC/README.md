@@ -152,7 +152,7 @@ python BulkUpdateTC.py
 
 ### Script Details
 
-- **Execution**: The script runs a python file using four script input parameters: username, password, base url and cycle key.
+- **Execution**: The script runs a python file using three script input parameters: username, password, base url, the test case keys are pulled from excel.
 
 ### Usage
 
