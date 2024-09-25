@@ -4,11 +4,11 @@ import json
 import csv
 
 # Replace with the Jira credentials
-username = 'matthew.bonner'
-password = 'pzg3abn_ndx9CKN4wrg'
-host = 'https://next-jira-8-postgres.qa.tm4j-server.smartbear.io'
+username = '<username>'
+password = '<password>'
+host = '<host>'
 # Replace with your host
-test_cycle = 'MIGB-C3856'
+test_cycle = '<test_cycle>'
 # Replace with the test cycle which contains the executions you wish to update
 
 base_url = f'{host}/rest/atm/1.0'
