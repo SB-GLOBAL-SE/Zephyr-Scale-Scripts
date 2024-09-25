@@ -91,8 +91,9 @@ def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bear
             logging.error(f"Failed to retrieve test cases. Status code: {response.status_code}")
             logging.error(f"Response content: {response.text}")
             break
-
+    print(old_to_new_tc_keys)
     return old_to_new_tc_keys  # Return the mapping for use in migrate_executions
+
 
 
 """def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey):
@@ -307,6 +308,7 @@ def migrateCycles(source_base_url, source_bearer_token, target_base_url, target_
             logging.error(f"Response content: {response.text}")
             break  # Exit the loop if there's an error retrieving cycles
 
+
 def migrate_executions(oldCycleKey, newCycleKey, source_headers, target_headers, target_base_url, old_to_new_tc_keys, targetProjectKey, status_kvp):
     url = f'{target_base_url}/testexecutions?testCycle={oldCycleKey}'
     
@@ -315,13 +317,13 @@ def migrate_executions(oldCycleKey, newCycleKey, source_headers, target_headers,
     if response.status_code == 200:
         execution_data = response.json()
         for execution in execution_data['values']:
-            oldTestCaseKey = execution.get('testCaseKey')  # Get the old test case key from execution
-            #print(old_to_new_tc_keys)
-            for value in old_to_new_tc_keys.values():
-                #print(value)
-                newTestCaseKey = value    
+            #oldTestCaseKey = execution.get('testCaseKey')  # Get the old test case key from execution
             
+            new_tc_keys_list = list(old_to_new_tc_keys.values())
 
+            
+                
+        for newTestCaseKey in new_tc_keys_list:
             status_id = execution.get('testExecutionStatus', {}).get('id')
             status_name = status_kvp.get(status_id, 'Unknown Status')
 

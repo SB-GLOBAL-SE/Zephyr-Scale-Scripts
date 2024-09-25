@@ -4,11 +4,11 @@ import json
 import csv
 
 # Replace with the Jira credentials
-username = '<username>'
-password = '<password>'
-host = '<host>'
+username = 'matthew.bonner'
+password = 'pzg3abn_ndx9CKN4wrg'
+host = 'https://next-jira-8-postgres.qa.tm4j-server.smartbear.io'
 # Replace with your host
-test_cycle = '<test cycle>'
+test_cycle = 'MIGB-C3856'
 # Replace with the test cycle which contains the executions you wish to update
 
 base_url = f'{host}/rest/atm/1.0'
@@ -18,7 +18,7 @@ url = f'{base_url}/testrun/{test_cycle}'
 headers = {
     'Content-Type': 'application/json'
 }
-csv_file_path = 'inputfile.csv'
+csv_file_path = 'inputfile1.csv'
 
 response = requests.get(url, headers=headers, auth=HTTPBasicAuth(username, password))
 CycleExecutions = []
@@ -35,50 +35,47 @@ if items:
     try:
         with open(csv_file_path, mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
-
-            # Iterate through each row in the CSV
+            
+            # Create a dictionary to store CSV data
+            csv_data = {}
             for row in csv_reader:
-                test_case_key = row['Test_case_keys']  # Extract test case key from the CSV
-                component = row['component']
-                priority = row['priority']
-                date = row['Date(testcase custom field)']
-                number = row['Number (testcase custom field)']
-                single_line = row['Sinlge Line (testcase custom field)']
-                multi_line = row['Multi Line (testcase custom field)']
-                single_list = row['Single List (testcase custom field)']
+                test_case_key = row['Test_case_keys']
+                csv_data[test_case_key] = row
 
-            for item in items:
-                testCaseKey = item.get('testCaseKey')
-                testExecutionStatus = item.get('status')
-                # Create the URL for the specific test case
+        for item in items:
+            testCaseKey = item.get('testCaseKey')
+            testExecutionStatus = item.get('status')
+            
+            # Check if the testCaseKey exists in the CSV data
+            if testCaseKey in csv_data:
+                row = csv_data[testCaseKey]
+                
                 url = f'{base_url}/testrun/{test_cycle}/testcase/{testCaseKey}/testresult'
 
-                #data not in CSV but I wanted to update
                 plannedStartDate = "2001-02-14T19:22:00-0300"
                 plannedEndDate = "2001-02-15T19:22:00-0300"
 
-                # Define the payload for the API request using CSV data
                 payload = {
                     "plannedStartDate": plannedStartDate,
                     "plannedEndDate": plannedEndDate,
                     "status": testExecutionStatus,
                     "customFields": {
-                        "date": date,
-                        "number": int(number),
-                        "Single Line": single_line,
-                        "Multi Line": multi_line,
-                        "Single List": single_list,
+                        "date": row['Date(testcase custom field)'],
+                        "number": int(row['Number (testcase custom field)']),
+                        "Single Line": row['Sinlge Line (testcase custom field)'],
+                        "Multi Line": row['Multi Line (testcase custom field)'],
+                        "Single List": row['Single List (testcase custom field)'],
                     }
                 }
-                
 
-                # Make the API request
                 response = requests.put(url, headers=headers, json=payload, auth=HTTPBasicAuth(username, password))
                 if response.status_code == 200:
                     print(f"Successfully updated test case {testCaseKey}")
                 else:
                     print(f"Failed to update test case {testCaseKey}")
                     print(response.content)
+            else:
+                print(f"Test case {testCaseKey} not found in CSV data")
 
     except FileNotFoundError:
         print(f'CSV file not found: {csv_file_path}')
