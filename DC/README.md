@@ -33,6 +33,11 @@
    - [Script Details](#script-details-1)
    - [Usage](#usage-1)
    - [Example](#example-1)
+8. [`unitTests_publishResultsZephyrScale_autoCreatedDefect.py`](#unitTests_publishResultsZephyrScale_autoCreatedDefectpy)
+   - [Purpose](#purpose-1)
+   - [Script Details](#script-details-1)
+   - [Usage](#usage-1)
+   - [Example](#example-1)
 
 ---
 
@@ -235,3 +240,30 @@ python MigrateAllExecutionStatus-SquadtoScale.py matt password https://jira.com 
 - Python 3.x is required to run this script.
 
 
+---
+
+## `unitTests_publishResultsZephyrScale_autoCreatedDefect.py`
+
+### Purpose
+
+`unitTests_publishResultsZephyrScale_autoCreatedDefect.py` is a Python script that executes a simple unit tests, if failure Jira defect is created and linked in execution results. Then execution results are published to Zephyr Scale.
+
+### Script Details
+
+- **Execution**: The script runs a python file using 5 input parameters: username, password, projectKey, instance, and test case key (in the unit tests). 
+
+### Usage
+
+To run the `unitTests_publishResultsZephyrScale_autoCreatedDefect.py` script, use the following command: python3 unitTests_publishResultsZephyrScale_autoCreatedDefect.py
+
+### Example
+
+```bash
+python3 unitTests_publishResultsZephyrScale_autoCreatedDefect.py
+```
+
+### Notes
+
+- Ensure that the `unitTests_publishResultsZephyrScale_autoCreatedDefect.py` script has been modified to include your jira instance specific values, and we are using the correct input parameters.
+- Python 3.x is required to run this script.
+- The test case key is required to be in the unit tests.
