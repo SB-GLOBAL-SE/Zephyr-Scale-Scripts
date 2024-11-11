@@ -3,22 +3,22 @@
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [`BulkUpdateTE.py`](#BulkUpdateTEpy)
+2. [`BulkUpdateTestExecution.py`](#BulkUpdateTestExecutionpy)
    - [Purpose](#purpose)
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
-3. [`BulkUpdateTE-Excel.py`](#BulkUpdateTE-Excelpy)
+3. [`BulkUpdateTestExecution-Excel.py`](#BulkUpdateTestExecution-Excelpy)
    - [Purpose](#purpose)
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
-4. [`BulkUpdateTC.py`](#BulkUpdateTCpy)
+4. [`BulkUpdateTestExecutionstCycle.py`](#BulkUpdateTestExecutionstCyclepy)
    - [Purpose](#purpose)
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
-5. [`BulkUpdateTC-Excel.py`](#BulkUpdateTC-Excelpy)
+5. [`BulkUpdateTestCycle-Excel.py`](#BulkUpdateTestCycle-Excelpy)
    - [Purpose](#purpose)
    - [Script Details](#script-details)
    - [Usage](#usage)
@@ -52,11 +52,11 @@ This project contains a number of key scripts. Below are detailed explanations o
 
 ---
 
-## `BulkUpdateTE.py`
+## `BulkUpdateTestExecution.py`
 
 ### Purpose
 
-`BulkUpdateTE.py` is a Python script designed to automate bulk update of two seperate process: 
+`BulkUpdateTestExecution.py` is a Python script designed to automate bulk update of two seperate process: 
 1. Determining what executions are contained within a sprit (test cycle)
 2. Updating a specific value across all executions in a sprint.
 
@@ -66,30 +66,30 @@ This project contains a number of key scripts. Below are detailed explanations o
 
 ### Usage
 
-To execute the `BulkUpdateTE.py` script, navigate to the project directory and use the following command:
+To execute the `BulkUpdateTestExecution.py` script, navigate to the project directory and use the following command:
 
 ```bash
-python `BulkUpdateTE.py` 
+python `BulkUpdateTestExecution.py` 
 ```
 
 ### Example
 
 ```bash
-python BulkUpdateTE.py 
+python BulkUpdateTestExecution.py 
 ```
 
 ### Notes
 
-- Ensure that the `BulkUpdateTE.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Ensure that the `BulkUpdateTestExecution.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
 - Python 3.x is required to run this script.
 
 ---
 
-## `BulkUpdateTE-Excel.py`
+## `BulkUpdateTestExecution-Excel.py`
 
 ### Purpose
 
-`BulkUpdateTE-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
+`BulkUpdateTestExecution-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
 1. Determining what executions are contained within a sprit (test cycle)
 2. Updating a specific value across all executions in a sprint.
 
@@ -99,31 +99,31 @@ python BulkUpdateTE.py
 
 ### Usage
 
-To execute the `BulkUpdateTE-Excel.py` script, navigate to the project directory and use the following command:
+To execute the `BulkUpdateTestExecution-Excel.py` script, navigate to the project directory and use the following command:
 
 ```bash
-python `BulkUpdateTE-Excel.py` 
+python `BulkUpdateTestExecution-Excel.py` 
 ```
 
 ### Example
 
 ```bash
-python BulkUpdateTE.py 
+python BulkUpdateTestExecution.py 
 ```
 
 ### Notes
 
-- Ensure that the `BulkUpdateTE-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Ensure that the `BulkUpdateTestExecution-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
 - Python 3.x is required to run this script.
 - csv is required to be in the same directory as the script. 
 
 ---
 
-## `BulkUpdateTC.py`
+## `BulkUpdateTestCycle.py`
 
 ### Purpose
 
-`BulkUpdateTC.py` is a Python script designed to automate bulk update of test cases via API: 
+`BulkUpdateTestCycle.py` is a Python script designed to automate bulk update of test cases via API: 
 
 ### Script Details
 
@@ -131,16 +131,16 @@ python BulkUpdateTE.py
 
 ### Usage
 
-To execute the `BulkUpdateTC.py` script, navigate to the project directory and use the following command:
+To execute the `BulkUpdateTestCycle.py` script, navigate to the project directory and use the following command:
 
 ```bash
-python `BulkUpdateTC.py` 
+python `BulkUpdateTestCycle.py` 
 ```
 
 ### Example
 
 ```bash
-python BulkUpdateTC.py 
+python BulkUpdateTestCycle.py 
 ```
 
 ### Notes
@@ -152,11 +152,11 @@ python BulkUpdateTC.py
 ---
 
 
-## `BulkUpdateTC-Excel.py`
+## `BulkUpdateTestCycle-Excel.py`
 
 ### Purpose
 
-`BulkUpdateTC-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
+`BulkUpdateTestCycle-Excel.py` is a Python script designed to automate bulk update of two seperate process: 
 1. Determining what executions are contained within a sprit (test cycle)
 2. Updating a specific value across all executions in a sprint.
 
@@ -166,21 +166,21 @@ python BulkUpdateTC.py
 
 ### Usage
 
-To execute the `BulkUpdateTC-Excel.py` script, navigate to the project directory and use the following command:
+To execute the `BulkUpdateTestCycle-Excel.py` script, navigate to the project directory and use the following command:
 
 ```bash
-python `BulkUpdateTC-Excel.py` 
+python `BulkUpdateTestCycle-Excel.py` 
 ```
 
 ### Example
 
 ```bash
-python BulkUpdateTC-Excel.py 
+python BulkUpdateTestCycle-Excel.py 
 ```
 
 ### Notes
 
-- Ensure that the `BulkUpdateTC-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Ensure that the `BulkUpdateTestCycle-Excel.py` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
 - Python 3.x is required to run this script.
 - csv is required to be in the same directory as the script. 
 
