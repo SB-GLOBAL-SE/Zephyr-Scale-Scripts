@@ -38,12 +38,17 @@
    - [Script Details](#script-details-1)
    - [Usage](#usage-1)
    - [Example](#example-1)
+9. [`CreateTestCycle-Excel.py`](#CreateTestCycle-Excelpy)
+   - [Purpose](#purpose)
+   - [Script Details](#script-details)
+   - [Usage](#usage)
+   - [Example](#example)
 
 ---
 
 ## Overview
 
-This project contains a few key scripts: `BulkUpdateTE.py`, `BulkUpdateTE.py` and `GetAllAssignableUsers.py`. Below are detailed explanations of each script, including their purposes, usage, and example commands.
+This project contains a number of key scripts. Below are detailed explanations of each script, including their purposes, usage, and example commands.
 
 ---
 
@@ -267,3 +272,38 @@ python3 unitTests_publishResultsZephyrScale_autoCreatedDefect.py
 - Ensure that the `unitTests_publishResultsZephyrScale_autoCreatedDefect.py` script has been modified to include your jira instance specific values, and we are using the correct input parameters.
 - Python 3.x is required to run this script.
 - The test case key is required to be in the unit tests.
+
+---
+
+
+## `CreateTestCycle-Excel.py`
+
+### Purpose
+
+`CreateTestCycle-Excel` is a Python script designed to automate the creation of test cases, driven from an excel spreadsheet
+
+
+### Script Details
+
+- **Execution**: The script runs a python file using four script input parameters: username, password, base url, host.
+
+### Usage
+
+To execute the `CreateTestCycle-Excel` script, navigate to the project directory and use the following command:
+
+```bash
+python `CreateTestCycle-Excel.py` 
+```
+
+### Example
+
+```bash
+python CreateTestCycle-Excel.py 
+```
+
+### Notes
+
+- Ensure that the `CreateTestCycle-Excel` script has been modified to include your jira instance specific values, and we are updating the correct objects in the executions.
+- Python 3.x is required to run this script.
+- inputlfileTestCycle.csv is required to be in the same directory as the script. 
+
