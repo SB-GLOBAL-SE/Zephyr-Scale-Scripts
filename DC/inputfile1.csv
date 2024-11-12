@@ -1,21 +1,21 @@
-Test_case_keys,Process,priority,component,Date(testcase custom field),Number (testcase custom field),Sinlge Line (testcase custom field),Multi Line (testcase custom field),Single List (testcase custom field),userpicker (teststep custom field)
-MIGB-T10223,Phase1,High,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
+Test_case_keys,Process,priority,status,component,Date(testcase custom field),Number (testcase custom field),Sinlge Line (testcase custom field),Multi Line (testcase custom field),Single List (testcase custom field),userpicker (teststep custom field)
+ZULU-T159,Phase1,High,Pass,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
 ","Test it for 
 multiline field
 ",select 1,Matthew Bonner
-MIGB-T10224,Phase2,High,TestA,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
+ZULU-T160,Phase2,High,Fail,TestA,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
 ","Test it for 
 multiline field
 ",select 2,Matthew Bonner
-MIGB-T10225,Phase3,High,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
+ZULU-T161,Phase3,High,Not Executed,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
 ","Test it for 
 multiline field
 ",select 3,Matthew Bonner
-MIGB-T10226,Phase4,High,TestA,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
+ZULU-T162,Phase4,High,Fail,TestA,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
 ","Test it for 
 multiline field
 ",select 4,Matthew Bonner
-MIGB-T10229,Phase5,High,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
+ZULU-T163,Phase5,High,Pass,TestB,2017-03-02T16:15:00.000Z,1,"Test it for multiline field
 ","Test it for 
 multiline field
 ",select 5,Matthew Bonner

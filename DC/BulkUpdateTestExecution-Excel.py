@@ -4,11 +4,14 @@ import json
 import csv
 
 # Replace with the Jira credentials
-username = '<username>'
-password = '<password>'
-host = '<host>'
+username = '<>'
+
+password = '<>'
+
+host = '<>'
 # Replace with your host
-test_cycle = '<test_cycle>'
+
+test_cycle = '<>'
 # Replace with the test cycle which contains the executions you wish to update
 
 base_url = f'{host}/rest/atm/1.0'
@@ -27,6 +30,7 @@ if response.status_code == 200:
     CycleExecutions = response.content
     cycle_executions_dict = json.loads(CycleExecutions)
     items = cycle_executions_dict.get("items", [])
+
 else:
     print('Error retrieving cycle executions')
     print(response.status_code)
@@ -44,7 +48,9 @@ if items:
 
         for item in items:
             testCaseKey = item.get('testCaseKey')
-            testExecutionStatus = item.get('status')
+
+            # Get the status from the CSV data using the testCaseKey
+            csv_status = csv_data.get(testCaseKey, {}).get('status', 'N/A')
             
             # Check if the testCaseKey exists in the CSV data
             if testCaseKey in csv_data:
@@ -58,7 +64,7 @@ if items:
                 payload = {
                     "plannedStartDate": plannedStartDate,
                     "plannedEndDate": plannedEndDate,
-                    "status": testExecutionStatus,
+                    "status": csv_status,
                     "customFields": {
                         "date": row['Date(testcase custom field)'],
                         "number": int(row['Number (testcase custom field)']),
@@ -67,6 +73,7 @@ if items:
                         "Single List": row['Single List (testcase custom field)'],
                     }
                 }
+                
 
                 response = requests.put(url, headers=headers, json=payload, auth=HTTPBasicAuth(username, password))
                 if response.status_code == 200:
