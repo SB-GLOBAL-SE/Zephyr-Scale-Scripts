@@ -169,7 +169,7 @@ def test_case(priority_id_kvp, name_id_kvp, projectkey):
                     og_folder = test_case.get('folder') or {}
                     og_folder_id = og_folder.get("id")
 
-                    #if Folder is None logic 
+                    #if Folder is not None logic 
                     if og_folder_id is not None:
                         og_folder_id = int(og_folder_id)
                         og_folder_link = og_folder.get("self", None)
@@ -187,16 +187,16 @@ def test_case(priority_id_kvp, name_id_kvp, projectkey):
                     og_owner = test_case.get('owner') or None
                     og_component = test_case.get("component", {}) 
 
-                    #If component does not equal None, get the values, else assign it to None
-                    if og_component != None:
+                    #If component is not None, get the values, else assign it to None
+                    if og_component is not None:
                         og_component_id = og_component.get("id")
                         og_component_link = og_component.get("self")
                     else: 
                         og_component_id = None
                         og_component_link = None
 
-                    #If owner does not equal None, get the values, else assign it to none
-                    if og_owner != None:
+                    #If owner is not None, get the values, else assign it to none
+                    if og_owner is not None:
                         og_owner_id = og_owner.get("accountId")
                         og_owner_link=og_owner.get("self")
                     else:
