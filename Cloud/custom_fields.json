@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Test Type Detail",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "Progression", "archived": false},
+            {"index": 1, "name": "Regression", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+
+    {
+        "name": "Automation Status",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "To be reviewed", "archived": false},
+            {"index": 1, "name": "Not scriptable", "archived": false},
+            {"index": 2, "name": "To be scripted", "archived": false},
+            {"index": 3, "name": "Scripted", "archived": false},
+            {"index": 4, "name": "Update script", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+
+    {
+        "name": "Test Case Coverage",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "High", "archived": false},
+            {"index": 1, "name": "Medium", "archived": false},
+            {"index": 2, "name": "Low", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+
+    {
+    "name": "Test Type",
+    "type": "SINGLE_CHOICE_SELECT_LIST",
+    "required": false,
+    "index": 24,
+    "category": "TEST_CASE",
+    "options": [        
+        {"index": 0, "name": "Accessibility", "archived": false},
+        {"index": 1, "name": "Alpha", "archived": false},
+        {"index": 2, "name": "Dev Test", "archived": false},
+        {"index": 3, "name": "Functional", "archived": false},
+        {"index": 4, "name": "Integration", "archived": false},
+        {"index": 5, "name": "OT", "archived": false},
+        {"index": 6, "name": "Performance", "archived": false},
+        {"index": 7, "name": "PPV", "archived": false},
+        {"index": 8, "name": "Security", "archived": false},
+        {"index": 9, "name": "UAT", "archived": false}
+    ],
+    "archived": false
+    },
+
+    {
+        "name": "Module Library",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "Progression", "archived": false},
+            {"index": 1, "name": "Regression", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+
+    {
+        "name": "Test CI",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "N/A", "archived": false},
+            {"index": 1, "name": "Yes", "archived": false},
+            {"index": 2, "name": "No", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+    {
+        "name": "Interface Touch Point/s",
+        "type": "MULTI_LINE_TEXT",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [],
+    "archived": false
+    },
+
+    {
+        "name": "Test Automation Tool",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "N/A", "archived": false},
+            {"index": 1, "name": "Appium - Android", "archived": false},
+            {"index": 2, "name": "Appium - iOS", "archived": false},
+            {"index": 3, "name": "Fusion Framework", "archived": false},
+            {"index": 4, "name": "Latte", "archived": false},
+            {"index": 5, "name": "Ready API", "archived": false},
+            {"index": 6, "name": "Sahi Pro", "archived": false},
+            {"index": 7, "name": "Selenium", "archived": false},
+            {"index": 8, "name": "Soap UI", "archived": false}
+    ]
+    ,
+    "archived": false
+    },
+
+    {
+        "name": "Test Case Classification",
+        "type": "SINGLE_CHOICE_SELECT_LIST",
+        "required": false,
+        "index": 24,
+        "category": "TEST_CASE",
+        "options": [        
+            {"index": 0, "name": "Positive scenario", "archived": false},
+            {"index": 1, "name": "Negative scenario", "archived": false}
+    ]
+    ,
+    "archived": false
+    }
+
+]

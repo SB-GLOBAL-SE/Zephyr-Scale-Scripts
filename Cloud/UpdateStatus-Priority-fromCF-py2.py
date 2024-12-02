@@ -10,7 +10,7 @@ import json
 
 
 #### REPLACE ME WITH ZEPHYR SCALE BEARER TOKEN #######
-bearer_token = "<>"
+bearer_token = "<Zephyr Scale Bearer Token>"
 
 ######### REPLACE ME WITH NEW ZEPHYR SCALE TEST CASE STATUSES.  Draft, Depricated and Approved are default values. 
 otherStatuses = set(["Review"])
