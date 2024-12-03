@@ -6,8 +6,13 @@ import json
 import os
 
 # In order to run the script, configure the fields below. Then run the python command with version 2.7 as the interpreter.
-# EX: python2.7 UpdateStatus-Priority-fromCF-py2.py <projectKey> <projectID> 
-# EX: python2.7 UpdateStatus-Priority-fromCF-py2.py ZULU 10169
+# EX: python2.7 Custom-Status-Priority-Fields2.7.py <projectKey> <projectID>      
+# EX: python2.7 Custom-Status-Priority-Fields2.7.py ZULU 10169
+
+## The migration of the test case status, test case priority, and custom fields are all seperate functions. That are executed in sequence in this script
+# To migrate statuses or priorities, we need to supply the project key as input 
+# To migrate custom feilds, we need to supply the project id as input.  
+# When we migrate both of these via the script - for continuity, migrate the a single projects project key and project ID.
 
 #### REPLACE ME WITH JIRA USER EMAIL #######   Requried for JWT and Custom Field functions
 username = "<Jira User Email>"
