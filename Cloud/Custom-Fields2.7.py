@@ -6,8 +6,8 @@ import json
 import os
 
 # In order to run the script, configure the fields below. Then run the python command with version 2.7 as the interpreter.
-# EX: python2.7 Custom-Fields2.7-repo.py  <projectID>      
-# EX: python2.7 Custom-Fields2.7-repo.py  10169
+# EX: python2.7 Custom-Fields2.7.py  <projectID>      
+# EX: python2.7 Custom-Fields2.7.py  10169
 
 # To migrate custom feilds, we need to supply the project id as input.  
 
