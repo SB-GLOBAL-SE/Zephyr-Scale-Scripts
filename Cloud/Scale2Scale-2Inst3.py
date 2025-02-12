@@ -78,8 +78,10 @@ def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bear
                     if newKey:
                         old_to_new_tc_keys[oldKey] = newKey
                 except requests.exceptions.RequestException as e:
-                    logging.error(f"Failed to migrate test case {oldKey}: {e}")
                     print(f"Error migrating test case {oldKey}: {e}")
+                    logging.error(f"Failed to migrate test case {oldKey}: {e}")
+                    logging.error(f"Response content: {post_response.content}")
+                    logging.error(f"Post Payload: {post_tc_payload}")
 
         except requests.exceptions.RequestException as e:
             logging.error(f"Failed to retrieve test cases: {e}")
