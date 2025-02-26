@@ -286,3 +286,5 @@ if __name__ == "__main__":
 
     print("Migrating Cycles and Executions....")
     migrateCycles(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey, old_to_new_tc_keys, status_kvp)
+
+    print("Migration completed, review error.log for errors")
