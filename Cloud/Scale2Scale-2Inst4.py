@@ -25,7 +25,7 @@ error_handler.setFormatter(log_formatter)
 error_logger.addHandler(error_handler)
 
 
-def migrateStatus(source_base_url, source_bearer_token, sourceProjectKey):
+def migrateTEStatus(source_base_url, source_bearer_token, sourceProjectKey):
     source_headers = {'Authorization': f'Bearer {source_bearer_token}'}
     url = f'{source_base_url}/statuses?statusType=TEST_EXECUTION&projectKey={sourceProjectKey}'
 
@@ -40,10 +40,31 @@ def migrateStatus(source_base_url, source_bearer_token, sourceProjectKey):
         return {status['id']: status['name'] for status in data.get('values', [])}
     except requests.exceptions.RequestException as e:
         error_logger.error(f"Failed to retrieve statuses: {e}")
+        return {}  
+
+def migrateTCStatus(source_base_url, source_bearer_token, sourceProjectKey):
+    source_headers = {'Authorization': f'Bearer {source_bearer_token}'}
+    url = f'{source_base_url}/statuses?statusType=TEST_CASE&projectKey={sourceProjectKey}'
+
+    print(f"Fetching test case statuses from {url}")
+
+    try:
+        response = requests.get(url, headers=source_headers, verify=False)
+        response.raise_for_status()
+        data = response.json()
+        status_count = len(data.get('values', []))
+        print(f"Successfully fetched {status_count} test case statuses.")
+        return {status['id']: status['name'] for status in data.get('values', [])}
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to retrieve test case statuses: {e}")
         return {}
 
-def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey):
-    start_at, max_results = 0, 100
+def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey, status_mapping):
+    """
+    Fetches test cases from the source project and migrates them to the target project.
+    """
+    start_at = 0  
+    max_results = 100  
     old_to_new_tc_keys = {}
 
     source_headers = {'Authorization': f'Bearer {source_bearer_token}'}
@@ -51,8 +72,7 @@ def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bear
 
     while True:
         url = f'{source_base_url}/testcases?startAt={start_at}&maxResults={max_results}&projectKey={sourceProjectKey}'
-        app_logger.info(f"Fetching test cases from {url}")
-
+        
         try:
             response = requests.get(url, headers=source_headers, verify=False)
             response.raise_for_status()
@@ -62,33 +82,43 @@ def migrateTC(source_base_url, source_bearer_token, target_base_url, target_bear
                 app_logger.info("No more test cases to migrate.")
                 break
 
-            start_at += max_results
+            start_at += max_results  
 
             for test_case in data['values']:
                 oldKey = test_case['key']
+                
+                # Fetch Status Name from Mapping (Default to "Not Executed" if not found)
+                status_id = test_case.get("status", {}).get("id")
+                status_name = status_mapping.get(status_id, "Not Executed")
+
+                # Ensure folder ID is correctly retrieved
+                #folder_id = test_case.get("folder", {}).get("id", None)
+
                 post_tc_payload = {
                     "projectKey": targetProjectKey,
                     "name": test_case['name'],
                     "objective": test_case.get('objective', ''),
-                    #"folderId": test_case['folder']['id'] if test_case.get('folder') else None,
+                    #"folderId": folder_id,
                     "precondition": test_case.get('precondition', ''),
                     "estimatedTime": test_case.get('estimatedTime', 0),
+                    "statusName": status_name 
                 }
 
                 post_url = f"{target_base_url}/testcases"
+                
                 try:
                     post_response = requests.post(post_url, headers=target_headers, json=post_tc_payload, verify=False)
                     post_response.raise_for_status()
-                    newKey = post_response.json().get('key', None)
+                    new_tc_data = post_response.json()
+                    newKey = new_tc_data.get('key')
 
                     if newKey:
                         old_to_new_tc_keys[oldKey] = newKey
-                        app_logger.info(f"Test case {oldKey} migrated to {newKey}")
-
+                        app_logger.info(f"Migrated test case {oldKey} → {newKey}")
                 except requests.exceptions.RequestException as e:
-                    error_logger.error(f"Error migrating test case {oldKey}: {e}")
-                    error_logger.error(f"Response content: {post_response.content}")
-                    error_logger.error(f"Post Payload: {post_tc_payload}")
+                    error_logger.error(f"Failed to migrate test case {oldKey}: {e}")
+                    error_logger.error(f"Response: {post_response.text}")
+                    error_logger.error(f"Payload: {post_tc_payload}")
 
         except requests.exceptions.RequestException as e:
             error_logger.error(f"Failed to retrieve test cases: {e}")
@@ -275,16 +305,17 @@ if __name__ == "__main__":
     sourceProjectKey = sys.argv[3]
     targetProjectKey = sys.argv[4]
 
-    print("Migrating statuses...")
-    status_kvp = migrateStatus(source_base_url, source_bearer_token, sourceProjectKey)
-    print("Statuses migrated:", status_kvp)
+    print("Migrating execution statuses...")
+    status_kvp = migrateTEStatus(source_base_url, source_bearer_token, sourceProjectKey)
+    print("Execution statuses migrated:", status_kvp)
+
+    print("Fetching test case statuses...")
+    status_mapping = migrateTCStatus(source_base_url, source_bearer_token, sourceProjectKey)  
+    print("Test case statuses fetched:", status_mapping)
 
     print("Migrating test cases...")
-    old_to_new_tc_keys = migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey)
+    old_to_new_tc_keys = migrateTC(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey, status_mapping) 
     print("Test cases migrated:", old_to_new_tc_keys)
-
 
     print("Migrating Cycles and Executions....")
     migrateCycles(source_base_url, source_bearer_token, target_base_url, target_bearer_token, sourceProjectKey, targetProjectKey, old_to_new_tc_keys, status_kvp)
-
-    print("Migration completed, review error.log for errors")
