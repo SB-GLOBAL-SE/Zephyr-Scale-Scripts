@@ -6,8 +6,8 @@ import json
 import os
 
 # In order to run the script, configure the fields below. Then run the python command with version 2.7 as the interpreter.
-# EX: python2.7 UpdateStatus-Priority-fromCF-py2.py <projectKey> <projectID> 
-# EX: python2.7 UpdateStatus-Priority-fromCF-py2.py ZULU 10169
+# EX: python2.7 CreateTCVersion2.7.py <projectID> 
+# EX: python2.7 CreateTCVersion2.7.py 10169
 
 #### REPLACE ME WITH JIRA USER EMAIL #######   Requried 
 username = "<Jira User Email>"
