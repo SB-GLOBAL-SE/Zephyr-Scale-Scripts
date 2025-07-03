@@ -391,7 +391,7 @@ if __name__ == "__main__":
 
     # Read input values from command-line arguments
     source_base_url = "https://api.zephyrscale.smartbear.com/v2"
-    target_base_url = source_base_url
+    target_base_url = "https://api.zephyrscale-dev.smartbear.com/v2"
     source_bearer_token = sys.argv[1]
     target_bearer_token = sys.argv[2]
     sourceProjectKey = sys.argv[3]
