@@ -44,10 +44,10 @@
    - [Usage](#usage)
    - [Example](#example)
 10. [`ExistingTestCycle-Executions-noTC.py`](#ExistingTestCycle-Executions-noTCpy)
-   - [Purpose](#purpose)
-   - [Script Details](#script-details)
-   - [Usage](#usage)
-   - [Example](#example)
+      - [Purpose](#purpose)
+      - [Script Details](#script-details)
+      - [Usage](#usage)
+      - [Example](#example)
 
 ---
 
