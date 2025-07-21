@@ -43,6 +43,11 @@
    - [Script Details](#script-details)
    - [Usage](#usage)
    - [Example](#example)
+10. [`ExistingTestCycle-Executions-noTC.py`](#ExistingTestCycle-Executions-noTCpy)
+   - [Purpose](#purpose)
+   - [Script Details](#script-details)
+   - [Usage](#usage)
+   - [Example](#example)
 
 ---
 
@@ -307,3 +312,39 @@ python CreateTestCycle-Excel.py
 - Python 3.x is required to run this script.
 - inputlfileTestCycle.csv is required to be in the same directory as the script. 
 
+---
+## `ExistingTestCycle-Executions-noTC.py`
+
+### Purpose
+
+`ExistingTestCycle-Executions-noTC.py` is a Python script designed to automate the process of updating an existing test cycle in Zephyr Scale. The script performs the following:
+1. Attempts to post test execution results for provided test cases into a specified test cycle.
+2. If a test case does not exist, it creates the test case dynamically and then adds the execution result to the cycle.
+
+### Script Details
+
+- **Execution**: The script runs a Python file using hardcoded inputs including Zephyr host, username, password, test cycle key, and the test case/test result data.
+
+### Usage
+
+To execute the `ExistingTestCycle-Executions-noTC.py` script, navigate to the project directory and use the following command:
+
+```bash
+python ExistingTestCycle-Executions-noTC.py
+```
+
+### Example
+
+```bash
+# Edit the script with your credentials, host, cycle key, and test case/result details, then run:
+python ExistingTestCycle-Executions-noTC.py
+```
+
+## Notes
+
+- Ensure that the `ExistingTestCycle-Executions-noTC.py` script has been modified to include your Jira Zephyr Scale instance's `host`, `username`, `password`, and `testRunKey`.
+- The script supports both posting results for existing test cases and creating new test cases if they are missing from the cycle.
+- Custom fields in the test case creation payload should be validated against your Jira configuration.
+- Python 3.x is required to run this script.
+
+---
